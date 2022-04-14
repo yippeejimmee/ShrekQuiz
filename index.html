@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Assets/CSS.css" />
+    <title>Javascript Quiz</title>
+</head>
+<body>
+     <header class="top">
+         <div class="highscores">View HighScores</div>
+         <div class="countdown">Time Left: 60</div>
+     </header>
+     <section class="mainPage">
+         <container id="idTitlePage" class="titlePage">
+             <h1>Coding Quiz Challenge</h1>
+             <p>Try to answer the following code-related questions within the time limit.  Keep in mind that incorrect answers will penalize your score/time by 10 seconds!</p>
+             <button id="startBtn">Start Quiz</button>
+         </container>
+         <container class="questionPage hidden">
+             <h1 class="question">Question</h1>
+             <div class="answer-container">
+                 <div class="answer" data-number="1">1.</div>
+                 <div class="answer" data-number="2">2.</div>
+                 <div class="answer" data-number="3">3.</div>
+                 <div class="answer" data-number="4">4.</div>
+             </div> 
+         </container>
+         <container class="includeName">
+             <div>
+                 <h2>Your score:</h2>
+                 <p class="finalScore"></p>
+             </div>
+                 <form>
+                     <label for="nameInitials">Your Initials</label>
+                     <input type="text" id="nameInitials" name="nameInitials">
+                 </form>
+             <div>
+
+             </div>
+         </container>
+     </section>
+         <container class="belowContainer">
+            <div class="fontAlert wrong hidden">Wrong!</div>
+         </container>
+         <container class="belowContainer">
+            <div class="fontAlert correct hidden">Correct!</div>
+         </container>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./Assets/Javascript.js"></script>
+</body>
+
+</html>
