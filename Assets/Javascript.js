@@ -24,12 +24,11 @@ var startingTime;
 var timeLeft;
 //var idTitlePage = document.querySelector("#idTitlePage")
 
-
+//run game hides the title page and makes question page visible and initiates starting time
 function runGame() {
     titlePage.classList.add('hidden');
     questionPage.classList.remove('hidden');
     startingTime = 60;
-    questionAll = [...questions];
 
     countDownFunc();
     setQuestion();
@@ -137,11 +136,11 @@ function setQuestion() {
     //spreading operator to extract values from the question array
     questionAll = [...questions];
 
-    //set up 
+    //set up question index to cycle through questions
     currentQuestion = questionAll[questionIndex];
     question.textContent = currentQuestion.question;
 
-
+    //iterates through each dataset number and applies it to const number and creating correlating text for options
     answers.forEach(selection => {
         const number = selection.dataset['number']
         selection.textContent = currentQuestion['option' + number];
@@ -150,8 +149,10 @@ function setQuestion() {
 
 answers.forEach(selection => {
     selection.addEventListener('click', e => {
+        //if selected option is does not match with answer of question, subtract 10 seconds
         if (e.target.dataset['number'] != currentQuestion.answer) {
             startingTime = startingTime - 10;
+            //have "wrong" pop up for a second after wrong selection
             wrong.classList.remove('hidden');
             setTimeout(function () {
                 wrong.classList.add('hidden');
@@ -159,10 +160,10 @@ answers.forEach(selection => {
 
             return
         }
-
+        //if it does match the dataset for answer, then give the selected answer a true boolean
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number'];
-
+        //if selected answer is true boolean, flash "correct" and call newquestion function
         if (selectedAnswer) {
             correct.classList.remove('hidden');
             setTimeout(function () {
@@ -174,8 +175,7 @@ answers.forEach(selection => {
 })
 
 function setNewQuestion() {
-    questionAll = [...questions];
-
+    //if question reaches end, set up user score in local storage and display it and stop timer
     if (questionIndex > 6) {
         localStorage.setItem('userScore', startingTime);
         questionPage.classList.add('hidden');
@@ -195,7 +195,7 @@ function setNewQuestion() {
     })
 }
 
-
+//let user input name and pair it with score and push it to local storage
 yourName.addEventListener("submit", function (e) {
     e.preventDefault();
     var userNameInput = document.querySelector("#nameInitials").value;
@@ -208,14 +208,15 @@ yourName.addEventListener("submit", function (e) {
     }
     includeName.classList.add('hidden');
     highScores.push(nameScore);
-    highScores.sort((a,b) => {
-        return b.score - a.score})
+    //sorts the scores in order and gets rid of 9th item
+    highScores.sort((a, b) => {
+        return b.score - a.score
+    })
     highScores.splice(8);
-
+    //set the high scores to local storage and making it a string so it can be accepted
     localStorage.setItem('highScores', JSON.stringify(highScores))
-    //window.location.assign("/");
 
-    console.log(highScores);
+    //display scores in an unordered list with name and score paired up
     highScoresList.innerHTML = highScores.map(score => {
         return `<li class="high-score">${score.name} - ${score.score}</li>`
     }).join('');
@@ -223,16 +224,16 @@ yourName.addEventListener("submit", function (e) {
 
 });
 
-
+//cleared localstorage by removing highScores
 clearScores.addEventListener("click", function (e) {
     e.preventDefault();
     window.localStorage.removeItem('highScores');
-
+    //replacing empty element with blank high scores list items
     highScoresList.innerHTML = highScores.map(score => {
         return `<li id="highScoresList"></li>`
     }).join('');
 })
-
+//hides high score page and displays the main page and resets question index and time left
 tryAgain.addEventListener("click", function (e) {
     e.preventDefault();
     highScoreTable.classList.add('hidden');
@@ -240,7 +241,7 @@ tryAgain.addEventListener("click", function (e) {
     countdown.textContent = "Time Left: 60";
     questionIndex = 0;
 })
-
+//shows high score table, clears timer if it is running and hides all elements except high score table
 highScoresLink.addEventListener("click", function (e) {
     e.preventDefault();
     highScoreTable.classList.remove('hidden');
