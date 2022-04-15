@@ -36,8 +36,7 @@ function runGame() {
 }
 
 //setting up array of objects with question, options and correct answer choice
-var questions = [
-    {
+var questions = [{
         question: 'Where does Shrek Live?',
         option1: '  1. A cave',
         option2: '  2. A swamp',
@@ -68,7 +67,7 @@ var questions = [
         option3: '  3. Fauna',
         option4: '  4. Fiona',
         answer: 4,
-    },  
+    },
     {
         question: "What is Princess Fiona's secret?",
         option1: '  1. She is a witch',
@@ -105,13 +104,13 @@ var questions = [
 
 //calling time count down function
 function countDownFunc() {
-    timeLeft = setInterval(function() {
+    timeLeft = setInterval(function () {
         console.log(startingTime);
         startingTime--;
         countdown.textContent = "Time Left: " + startingTime;
 
         //Time expiration, prompting try again or give up
-        if(startingTime <= -1) {
+        if (startingTime <= -1) {
             clearInterval(timeLeft);
             let tryAgain = confirm("You didn't complete it in time! Try again or GET OUT OF MY SWAMP!")
             if (tryAgain) {
@@ -134,7 +133,7 @@ function countDownFunc() {
     }, 1000);
 }
 
-function setQuestion () {
+function setQuestion() {
     //spreading operator to extract values from the question array
     questionAll = [...questions];
 
@@ -151,40 +150,40 @@ function setQuestion () {
 
 answers.forEach(selection => {
     selection.addEventListener('click', e => {
-        if(e.target.dataset['number'] != currentQuestion.answer) {
+        if (e.target.dataset['number'] != currentQuestion.answer) {
             startingTime = startingTime - 10;
             wrong.classList.remove('hidden');
-            setTimeout(function(){
-            wrong.classList.add('hidden');
-        }, 1000);
+            setTimeout(function () {
+                wrong.classList.add('hidden');
+            }, 1000);
 
-        return
+            return
         }
-        
+
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number'];
 
-        if(selectedAnswer){
+        if (selectedAnswer) {
             correct.classList.remove('hidden');
-            setTimeout(function(){
+            setTimeout(function () {
                 correct.classList.add('hidden');
             }, 1000);
-        setNewQuestion();
+            setNewQuestion();
         }
     })
 })
 
-function setNewQuestion () {
+function setNewQuestion() {
     questionAll = [...questions];
 
-    if(questionIndex > 6) {
+    if (questionIndex > 6) {
         localStorage.setItem('userScore', startingTime);
         questionPage.classList.add('hidden');
         finalScore.textContent = startingTime;
         clearInterval(timeLeft);
         includeName.classList.remove('hidden');
         return;
-    } 
+    }
     questionIndex++;
 
     currentQuestion = questionAll[questionIndex];
@@ -197,7 +196,7 @@ function setNewQuestion () {
 }
 
 
-yourName.addEventListener("submit", function(e){
+yourName.addEventListener("submit", function (e) {
     e.preventDefault();
     var userNameInput = document.querySelector("#nameInitials").value;
     console.log(userNameInput);
@@ -207,8 +206,11 @@ yourName.addEventListener("submit", function(e){
         score: yourScore,
         name: userNameInput
     }
-includeName.classList.add('hidden');
+    includeName.classList.add('hidden');
     highScores.push(nameScore);
+    highScores.sort((a,b) => {
+        return b.score - a.score})
+    highScores.splice(8);
 
     localStorage.setItem('highScores', JSON.stringify(highScores))
     //window.location.assign("/");
@@ -218,19 +220,20 @@ includeName.classList.add('hidden');
         return `<li class="high-score">${score.name} - ${score.score}</li>`
     }).join('');
     highScoreTable.classList.remove('hidden');
-    
+
 });
 
 
-clearScores.addEventListener("click", function(e){
+clearScores.addEventListener("click", function (e) {
     e.preventDefault();
     window.localStorage.removeItem('highScores');
+
     highScoresList.innerHTML = highScores.map(score => {
         return `<li id="highScoresList"></li>`
     }).join('');
 })
 
-tryAgain.addEventListener("click", function(e){
+tryAgain.addEventListener("click", function (e) {
     e.preventDefault();
     highScoreTable.classList.add('hidden');
     titlePage.classList.remove('hidden');
@@ -238,16 +241,15 @@ tryAgain.addEventListener("click", function(e){
     questionIndex = 0;
 })
 
-highScoresLink.addEventListener("click", function(e){
+highScoresLink.addEventListener("click", function (e) {
     e.preventDefault();
     highScoreTable.classList.remove('hidden');
     titlePage.classList.add('hidden');
     questionPage.classList.add('hidden');
     clearInterval(timeLeft);
 })
-    
+
 
 
 
 startBtn.addEventListener("click", runGame)
-

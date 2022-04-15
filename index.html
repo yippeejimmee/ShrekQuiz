@@ -1,74 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./Assets/CSS.css" />
-    <link href="http://fonts.cdnfonts.com/css/jlr-star-shrek" rel="stylesheet">
-    <title>Javascript Quiz</title>
-</head>
-<body>
-    <img class="shrek" src="./Assets/wallpaperflare-cropped (1).jpg">
+    <link
+      href="http://fonts.cdnfonts.com/css/jlr-star-shrek"
+      rel="stylesheet"
+    />
+    <title>Shrek Quiz</title>
+  </head>
+  <body>
+    <img class="shrek" src="./Assets/wallpaperflare-cropped (1).jpg" />
     <main>
-     <header class="top">
-         <div class="highScoresLink">View HighScores</div>
-         <div class="countdown">Time Left: 60</div>
-     </header>
-     <audio src="./Assets/Y2Mate.is - All Star - Smash Mouth [Lyrics]-z9aW_0hkoYo-240p-1647027890559.mp4" autoplay controls ></audio>
-     <section class="mainPage">
-         <container id="idTitlePage" class="titlePage">
-             <h1 class="mainTitle">Shrek Quiz Challenge</h1>
-                <p>So you think you're a Shrek fan eh? Well answer mine questions 8 that grow in difficulty as you progress!  Time to see if you are truly a Farquaad, or not! Careful though, you can't guess too willy nilly as you lose 10 seconds for every wrong choice!</p>
-             <button id="startBtn">Start Quiz</button>
-         </container>
-         <container class="questionPage hidden">
-             <h1 class="question">Question</h1>
-             <div class="answer-container">
-                 <div class="answer" data-number="1">1.</div>
-                 <div class="answer" data-number="2">2.</div>
-                 <div class="answer" data-number="3">3.</div>
-                 <div class="answer" data-number="4">4.</div>
-             </div> 
-         </container>
-         <container class="includeName hidden">
-             <div>
-                 <h2>Your score</h2>
-                 <p class="finalScore"></p>
-             </div>
-             <div>
-                 <p class="finalTimeScore">60</p>
-             </div>
-             <div>
-                 <form>
-                     <label for="nameInitials">Your Initials:</label>
-                     <input type="text" id="nameInitials" name="nameInitials">
-                 </form>
-             </div>
-         </container>
-         <container class="highScoreTable hidden">
-             <div class="center">
-                 <h2>Leaderboard</h2>
-                 <ul id="highScoresList"></ul>
-                 <div>
-                     <button class="tryAgain buttonFormat">Try Again</button>
-                     <button class="clearScores buttonFormat">Clear Scores</button>
-                 </div>
-                 
-             </div>
-         </container>
-     </section>
-         <container class="belowContainer">
-            <div class="fontAlert wrong hidden">Wrong!</div>
-         </container>
-         <container class="belowContainer">
-            <div class="fontAlert correct hidden">Correct!</div>
-         </container>
+      <header class="top">
+        <div class="highScoresLink">View HighScores</div>
+        <div class="countdown">Time Left: 60</div>
+      </header>
+      <audio
+        src="./Assets/Y2Mate.is - All Star - Smash Mouth [Lyrics]-z9aW_0hkoYo-240p-1647027890559.mp4"
+        autoplay
+        controls
+      ></audio>
+      <section class="mainPage">
+        <container id="idTitlePage" class="titlePage">
+          <h1 class="mainTitle">Shrek Quiz Challenge</h1>
+          <p>
+            So you think you're a Shrek fan eh? Well answer mine questions 8
+            that grow in difficulty as you progress! Time to see if you are
+            truly a Farquaad, or not! Careful though, you can't guess too willy
+            nilly as you lose 10 seconds for every wrong choice!
+          </p>
+          <button id="startBtn">Start Quiz</button>
+        </container>
+        <container class="questionPage hidden">
+          <h1 class="question">Question</h1>
+          <div class="answer-container">
+            <div class="answer" data-number="1">1.</div>
+            <div class="answer" data-number="2">2.</div>
+            <div class="answer" data-number="3">3.</div>
+            <div class="answer" data-number="4">4.</div>
+          </div>
+        </container>
+        <container class="includeName hidden">
+          <div>
+            <h1>Your score</h2>
+            <p class="finalScore"></p>
+          </div>
+          <div>
+            <p class="finalTimeScore">60</p>
+          </div>
+          <div>
+            <form class="form">
+              <label for="nameInitials">Your Initials:</label>
+              <input type="text" id="nameInitials" name="nameInitials" />
+            </form>
+          </div>
+        </container>
+        <container class="highScoreTable hidden">
+          <div class="center">
+            <h1>Leaderboard</h1>
+            <ul id="highScoresList"></ul>
+            <div>
+              <button class="tryAgain buttonFormat">Try Again</button>
+              <button class="clearScores buttonFormat">Clear Scores</button>
+            </div>
+          </div>
+        </container>
+      </section>
+      <container class="belowContainer">
+        <div class="fontAlert wrong hidden">Wrong!</div>
+      </container>
+      <container class="belowContainer">
+        <div class="fontAlert correct hidden">Correct!</div>
+      </container>
 
-         <footer>
-         </footer>
+      <footer></footer>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./Assets/Javascript.js"></script>
-</body>
+  </body>
 </html>
