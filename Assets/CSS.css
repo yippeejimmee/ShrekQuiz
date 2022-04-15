@@ -9,7 +9,23 @@
 }
 
 body {
-    background-color: aqua;
+    background-color: rgb(203, 238, 255);
+}
+
+.shrek{
+    position: fixed;
+    z-index: 0;
+    top: 34px;
+    width: 110%;
+    height: 110%;
+}
+
+h2 {
+    text-align: center;
+}
+
+main {
+    z-index: 1;
 }
 
 header {
@@ -22,20 +38,48 @@ header {
     padding-top: .5rem;
     font-weight: 300;
     border-bottom: 2px solid black;
+    z-index: 1;
 
 }
 
-.highscores {
+.mainTitle {
+    font-family: 'JLR Star Shrek', sans-serif;
+    z-index: 1;
+}
+
+.mainPage h1 {
+    font-family: 'JLR Star Shrek', sans-serif;
+    z-index: 1;
+}
+
+.highScoresLink {
     margin-left: 5px;
     vertical-align: middle;
     font-weight: 600;
+    z-index: 1;
+    width: 140px;
+}
+
+.highScoresLink:hover {
+    cursor: pointer;
+}
+
+.buttonFormat {
+    font-size: 1rem;
+    margin: 2rem 1rem 1rem 1rem;
+    padding: .5rem;
+    background-color: var(--main-button-color);
+    border-radius: 5px;
+    color: white;
+    z-index: 1;
+    align-self: center;
 }
 
 .countdown {
     text-align: right;
     margin-right: 5px;
     font-weight: 600;
-
+    z-index: 1;
 }
 
 .titlePage {
@@ -48,25 +92,71 @@ header {
     padding: 1rem;
     border-radius: 10px;
     background-color: white;
+    z-index: 1;
 }
+
 .belowContainer{
     text-align: center;
+    z-index: 2;
+    position: relative;
+}
+.finalTimeScore{
+    font-size: 70px;
+}
+
+.includeName {
+    z-index: 1;
+    text-align: center;
+    flex-direction: column;
+    border: 2px solid ;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    height: auto;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.highScoreTable {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    height: auto;
+    flex-wrap: wrap;
+    border: 2px solid ;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.includeName h2 {
+    font-family: 'JLR Star Shrek', sans-serif;
 }
 
 .titlePage h1 {
     font-size: 2rem;
     padding: 1rem;
+    z-index: 1;
 }
 
 .fontAlert {
     font-size: 1.20rem;
     font-style: italic;
     font-weight: 500;
-    color: rgb(61, 61, 61);
+    color: rgb(0, 0, 0);
 }
 
 .titlePage p {
     text-align: center;
+    z-index: 1;
 }
 
 .titlePage button {
@@ -76,6 +166,7 @@ header {
     background-color: var(--main-button-color);
     border-radius: 5px;
     color: white;
+    z-index: 1;
 }
 
 .answer {
@@ -90,6 +181,7 @@ header {
     border: 1px solid black;
     box-shadow: 1px 1px 1px black;
     width: fit-content;
+    z-index: 1;
 }
 
 .answer:hover {
@@ -107,6 +199,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     margin-top: 20%;
+    z-index: 1;
 }
 
 .hidden {
@@ -121,9 +214,31 @@ button:hover {
     border-radius: 10px;
     background-color: white;
     box-shadow: 1px 1px 1px black;
+    z-index: 1;
 }
 
 .question {
     text-align: center;
     padding-bottom: .5rem;
+    z-index: 1;
+}
+
+footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-height: 100%;
+}
+
+audio {
+    position: absolute;
+    display: flex;
+    z-index: 2;
+    align-self: flex-end;
+    opacity: .5;  
+}
+
+#highScoresList {
+    list-style: none;
+    font-family: 'JLR Star Shrek', sans-serif;
 }
