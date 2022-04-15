@@ -19,10 +19,12 @@ var highScoresLink = document.querySelector(".highScoresLink")
 var currentQuestion = {};
 var questionIndex = 0;
 var questionAll = [];
-
 var startingTime;
 var timeLeft;
-//var idTitlePage = document.querySelector("#idTitlePage")
+
+window.onload = function(){
+    alert("If the music doesn't start automatically, click the play button in the upper left hand corner!")
+}
 
 //run game hides the title page and makes question page visible and initiates starting time
 function runGame() {
